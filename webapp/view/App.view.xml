@@ -1,0 +1,18 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.App"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+>
+	<!-- <Text text="External view"/> -->
+	<!-- text="Press me" btn name eta. evabe chara amra abr properties thekeo nite pari direct-->
+	<Button
+		text="{i18n>showHelloButtonText}"  
+		press=".onShowHello"
+	/>
+	<Input
+		value="{/recipient/name}"
+		description="Hello {/recipient/name}"
+		valueLiveUpdate="true"
+		width="60%"
+	/>
+</mvc:View>
