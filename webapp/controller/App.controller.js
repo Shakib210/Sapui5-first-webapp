@@ -31,16 +31,21 @@ sap.ui.define([
         * @override
         */
 
-        onShowHello: function () {
-            //read msg from i18n model start
-            const oBundle = this.getView().getModel("i18n").getResourceBundle()
-            const sRecipient = this.getView().getModel().getProperty("/recipient/name")
-            const sMsg = oBundle.getText("helloMessage", [sRecipient])
+        // moved to hello panel. For nested view
 
-            alert(sMsg)
-            MessageToast.show("Toast here!")
+        // onShowHello: function () {
+        //     //read msg from i18n model start
+        //     const oBundle = this.getView().getModel("i18n").getResourceBundle()
+        //     const sRecipient = this.getView().getModel().getProperty("/recipient/name")
+        //     const sMsg = oBundle.getText("helloMessage", [sRecipient])
+
+        //     alert(sMsg)
+        //     MessageToast.show("Toast here!")
+        // }
+
+        onOpenDialog: function () {
+            this.getOwnerComponent().openHelloDialog();
         }
-
 
     });
 }); 

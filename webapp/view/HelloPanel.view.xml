@@ -1,0 +1,49 @@
+<mvc:View
+	controllerName="sap.ui.demo.walkthrough.controller.HelloPanel"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+>
+	<Panel
+		class="sapUiResponsiveMargin"
+		headerText="{i18n>helloPanelTitle}"
+	>
+		<content>
+			<Button
+				text="{i18n>showHelloButtonText}"
+				press=".onShowHello"
+				class="sapUiSmallMarginBeginEnd"
+			/>
+			<Button
+				text="{i18n>showHelloButtonText}"
+				press=".onShowHello"
+				class="myCustomButton"
+			/>
+
+
+			<!-- custom css -->
+			<Input
+				value="{/recipient/name}"
+				description="Hello {/recipient/name}"
+				valueLiveUpdate="true"
+				width="60%"
+			/>
+			<Text
+				text="Hello {/recipient/name}"
+				class="sapUiSmallMargin"
+			/>
+			<!-- custom css -->
+			<FormattedText
+				htmlText="Hello {/recipient/name}"
+				class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"
+			/>
+
+            <!-- open dialog button -->
+            <Button
+				text="{i18n>openDialogBtnText}"
+				press=".onOpenDialog"
+				class="sapUiSmallMarginBeginEnd"
+			/>
+
+		</content>
+	</Panel>
+</mvc:View>

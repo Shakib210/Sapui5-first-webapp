@@ -5,29 +5,34 @@
 >
 	<!-- <Text text="External view"/> -->
 	<!-- text="Press me" btn name eta. evabe chara amra abr properties thekeo nite pari direct-->
-	<Button
-		text="{i18n>showHelloButtonText}"  
+	<!-- <Button
+		text="{i18n>showHelloButtonText}"
 		press=".onShowHello"
-	/>
+	/> -->
 	<Input
 		value="{/recipient/name}"
 		description="Hello {/recipient/name}"
 		valueLiveUpdate="true"
 		width="60%"
 	/>
+	<!-- shell dia 2 side e color kore majhe nia ase. -->
+	<Shell>
+		<App class="myAppDemoWT">
+			<pages>
+				<Page title="{i18n>homePageTitle}">
+					<headerContent>
+						<Button
+							icon="sap-icon://hello-world"
+							press=".onOpenDialog"/>
+					</headerContent>
 
-	<App>
-        <pages>
-            <Page title="{i18n>homePageTitle}">
-                <content>
-                    <Panel headerText="{i18n>helloPanelTitle}">
-                        <content>
-                            <Button text="{i18n>showHelloButtonText}" press=".onShowHello"/>
-                            <Input value="{/recipient/name}" description="Hello {/recipient/name}" valueLiveUpdate="true" width="60%"/>
-                        </content>
-                    </Panel>
-                </content>
-            </Page>
-        </pages>
-    </App>
+					<content>
+						<mvc:XMLView 
+						viewName="sap.ui.demo.walkthrough.view.HelloPanel"
+						/>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
 </mvc:View>
