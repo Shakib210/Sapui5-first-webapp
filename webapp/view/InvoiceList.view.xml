@@ -4,11 +4,38 @@
 	xmlns:mvc="sap.ui.core.mvc"
 >
 	<List
+		id="invoiceList"
 		headerText="{i18n>invoiceListTitle}"
 		class="saUiResponsiveMargin"
 		width="auto"
-		items="{invoice>/Invoices}"
+		items="{
+			path: 'invoice>/Invoices',
+			sorter: {
+				path: 'ShipperName',
+				group: true
+			}
+		}"
 	>
+		<!-- if sorting needed then   items="{
+		path: 'invoice>/Invoices',
+		sorter: {
+			path: 'ShipperName',
+			group: true
+			}
+		}">
+
+		else just items="{invoice>/Invoices}" -->
+		<headerToolbar>
+			<Toolbar>
+				<!-- <Title>Invoice</Title> -->
+				<Title text="{i18n>invoiceListTitle}"/>
+				<ToolbarSpacer/>
+				<SearchField
+					width="50%"
+					search=".onFilterInvoice"
+				/>
+			</Toolbar>
+		</headerToolbar>
 		<items>
 			<ObjectListItem
 				title="{invoice>Quantity} x {invoice>ProductName}"
@@ -26,6 +53,9 @@
 				}"
 				numberUnit="{view>/currency}"
 				numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success'}"
+
+				type="Navigation"
+                press="onPress"
 			>
 				<firstStatus>
 					<ObjectStatus text="{
